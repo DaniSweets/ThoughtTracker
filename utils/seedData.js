@@ -17,17 +17,16 @@ const seedThoughts = [
     'Rainy days suck.'
 ];
 
-const getRandomArrayItem = (array) => {
-    array[Math.floor(Math.random() * array.length)]
-};
+const getRandomArrayItem = (array) => array[Math.floor(Math.random() * array.length)];
 
-const getRandomFirstName = () => {
-    return getRandomArrayItem(firstNames);
-};
+// const getRandomFirstName = () => {
+//     // getRandomArrayItem(firstNames);
+//     firstNames[Math.floor(Math.random() * firstNames.length)]
+// };
 
-const getRandomLastName = () => {
-    return getRandomArrayItem(lastNames);
-};
+// const getRandomLastName = () => {
+//     getRandomArrayItem(lastNames);
+// };
 
 const getRandomThoughts = (int) => {
     let results = [];
