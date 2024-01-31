@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const { getRandomName, getRandomThoughts } = require('./seedData');
+const { getRandomFirstName, getRandomLastName, getRandomThoughts } = require('./seedData');
 
 connection.on('error', (err) => err);
 
@@ -22,9 +22,8 @@ connection.once('open', async () => {
   const thoughts = getRandomThoughts(10);
 
   for (let i = 0; i < 20; i++) {
-    const fullName = getRandomName();
-    const first = fullName.split(' ')[0];
-    const last = fullName.split(' ')[1];
+    const first = getRandomFirstName();
+    const last = getRandomLastName();
 
     users.push({
       first,

@@ -1155,3 +1155,5 @@ const lastNames = [
     'Zamora',
     'Zimmerman'
 ];
+
+module.exports = {firstNames, lastNames};

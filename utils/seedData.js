@@ -17,17 +17,23 @@ const seedThoughts = [
     'Rainy days suck.'
 ];
 
-const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrayItem = (array) => {
+    array[Math.floor(Math.random() * array.length)]
+};
 
-const getRandomName = () => {
-    `${getRandomArrItem(firstNames)} ${getRandomArrItem(lastNames)}`
+const getRandomFirstName = () => {
+    return getRandomArrayItem(firstNames);
+};
+
+const getRandomLastName = () => {
+    return getRandomArrayItem(lastNames);
 };
 
 const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
-      results.push({idea: getRandomArrItem(seedThoughts)});
+        results.push({ idea: getRandomArrayItem(seedThoughts) });
     } return results;
 };
 
-module.exports = { getRandomName, getRandomThoughts };
+module.exports = { getRandomFirstName, getRandomLastName, getRandomThoughts };
