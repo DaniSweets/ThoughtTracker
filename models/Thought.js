@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+// const User = require('./User');
 
 const thoughtSchema = new Schema(
   {
@@ -8,9 +9,13 @@ const thoughtSchema = new Schema(
     },
     idea: {
       type: String,
-      minLength: 15,
+      minLength: 5,
       maxLength: 500,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
   },
   {
     toJSON: {
@@ -20,6 +25,6 @@ const thoughtSchema = new Schema(
   }
 );
 
-const Thought = model('thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;

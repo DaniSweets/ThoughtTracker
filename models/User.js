@@ -5,12 +5,10 @@ const userSchema = new Schema(
     first: String,
     last: String,
     age: Number,
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'thought',
-      },
-    ],
+    thoughts: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Thought'
+    }],
   },
   {
 
@@ -33,6 +31,6 @@ userSchema
     this.set({ first, last });
   });
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

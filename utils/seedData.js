@@ -1,4 +1,4 @@
-const { firstNames, lastNames } = require('./names')
+// const { firstNames, lastNames } = require('./names')
 
 const seedThoughts = [
     'Did I turn off the stove?',
@@ -17,22 +17,22 @@ const seedThoughts = [
     'Rainy days suck.'
 ];
 
-const getRandomArrayItem = (array) => array[Math.floor(Math.random() * array.length)];
 
-// const getRandomFirstName = () => {
-//     // getRandomArrayItem(firstNames);
-//     firstNames[Math.floor(Math.random() * firstNames.length)]
-// };
-
-// const getRandomLastName = () => {
-//     getRandomArrayItem(lastNames);
-// };
-
-const getRandomThoughts = (int) => {
+const getRandomThoughts = (int, userId) => {
     let results = [];
     for (let i = 0; i < int; i++) {
-        results.push({ idea: getRandomArrayItem(seedThoughts) });
+        results.push({
+            user: userId,
+            idea: (seedThoughts[Math.floor(Math.random() * seedThoughts.length)]),
+            createdAt: generateRandomDate()
+        });
     } return results;
 };
 
-module.exports = { getRandomFirstName, getRandomLastName, getRandomThoughts };
+const generateRandomDate = () => {
+    return new Date(
+        2000, 1, 1).getTime() +
+        Math.random() * (new Date().getTime() - new Date(2000, 1, 1).getTime());
+}
+
+module.exports = { getRandomThoughts };
